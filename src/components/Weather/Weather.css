@@ -1,0 +1,53 @@
+.mainDivWeather {
+  color: orangered;
+  background: #323232;
+  padding: 1rem;
+  text-align: center;
+}
+
+.callGeolocationButton {
+  color: cyan;
+  font-weight: 700;
+  background: darkblue;
+  padding: 0.5rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.callGeolocationButton:hover {
+  color: orangered;
+  background: darkolivegreen;
+  transition: 0.2s;
+}
+
+.checkWeatherStateButton {
+  color: darkorchid;
+  font-weight: 700;
+  background: palegreen;
+  padding: 0.5rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.checkWeatherStateButton:hover {
+  color: mediumaquamarine;
+  background: darkslateblue;
+  transition: 0.2s;
+}
+
+.fetchOpenWeatherApiButton {
+  color: gold;
+  font-weight: 700;
+  background: darkred;
+  padding: 0.5rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.fetchOpenWeatherApiButton:hover {
+  color: limegreen;
+  background: indigo;
+  transition: 0.2s;
+}
