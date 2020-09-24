@@ -195,8 +195,8 @@ class Weather extends React.Component<AcceptedProps, WeatherState> {
                         console.log(
                             'Stored latitude:', this.state.latitude,
                             'Stored longitude:', this.state.longitude,
-                            'Stored weatherApiUrl:', this.state.weatherApiUrl,
-                            'Stored weatherApiKey:', this.state.weatherApiKey,
+                            // 'Stored weatherApiUrl:', this.state.weatherApiUrl,
+                            // 'Stored weatherApiKey:', this.state.weatherApiKey,
                             'Stored temperature:', this.state.temperature,
                             'Stored feelsLike:', this.state.feelsLike,
                             'Stored humidity:', this.state.humidity,
@@ -208,7 +208,7 @@ class Weather extends React.Component<AcceptedProps, WeatherState> {
                     }
                         // console.log('This button will call the geolocation.')
                     }
-                >Check Geolocation State & weatherApiUrl (console.log)</button>
+                >Check WeatherState (console.log)</button>
                 <br />
                 <br />
                 <button
@@ -216,7 +216,7 @@ class Weather extends React.Component<AcceptedProps, WeatherState> {
                     onClick={() => this.setCoords()
                         // console.log('This button will call the geolocation.')
                     }
-                >Re-Fetch Current Location</button>
+                >Re-Fetch Current Location (console.log)</button>
 
                 <br />
                 <br />
