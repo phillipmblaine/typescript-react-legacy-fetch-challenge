@@ -11,6 +11,9 @@ type WeatherState = {
     feelsLike: number;
     humidity: number;
     pressure: number;
+    windDeg: number;
+    windSpeed: number;
+    timezone: string
 }
 
 // if there were props to inherit, could go here
@@ -31,11 +34,12 @@ class Weather extends React.Component<AcceptedProps, WeatherState> {
     //     }
     // }
 
-    // tick() {
-    //     this.setState({
-    //         time: new Date()
-    //     })
-    // }
+    // from module, kept in for fun
+    tick() {
+        this.setState({
+            time: new Date()
+        })
+    }
 
     // either have state set in constructor, or in componentWillMount(), executes before first mounting
     componentWillMount() {
@@ -48,7 +52,10 @@ class Weather extends React.Component<AcceptedProps, WeatherState> {
             temperature: 0,
             feelsLike: 0,
             humidity: 0,
-            pressure: 0
+            pressure: 0,
+            windDeg: 0,
+            windSpeed: 0,
+            timezone: ''
             // weatherApiUrl: ''
         })
         // this.setCoords() sets latitude, longitude, and weatherApiUrl
@@ -86,7 +93,7 @@ class Weather extends React.Component<AcceptedProps, WeatherState> {
         // }, 500);
         // console.log('Latitude:', this.state.latitude)
         // a handy digital clock (from module)
-        // setInterval(() => this.tick(), 1000)
+        setInterval(() => this.tick(), 1000)
         // this will call current local coordinates on first render
 
         // this.setCoords()
@@ -145,7 +152,8 @@ class Weather extends React.Component<AcceptedProps, WeatherState> {
             })
             .then((openWeatherApiResults) => {
                 console.log(openWeatherApiResults)
-                // console.log(openWeatherApiResults.current)
+                console.log(openWeatherApiResults.current)
+                console.log(openWeatherApiResults.timezone)
                 // console.log(openWeatherApiResults.current.feels_like)
                 // console.log(openWeatherApiResults.current.humidity)
                 // console.log(openWeatherApiResults.current.pressure)
@@ -159,7 +167,10 @@ class Weather extends React.Component<AcceptedProps, WeatherState> {
                     temperature: openWeatherApiResults.current.temp,
                     feelsLike: openWeatherApiResults.current.feels_like,
                     humidity: openWeatherApiResults.current.humidity,
-                    pressure: openWeatherApiResults.current.pressure
+                    pressure: openWeatherApiResults.current.pressure,
+                    windDeg: openWeatherApiResults.current.wind_deg,
+                    windSpeed: openWeatherApiResults.current.wind_speed,
+                    timezone: openWeatherApiResults.timezone
                 })
             })
             // .then(() => {
@@ -189,7 +200,10 @@ class Weather extends React.Component<AcceptedProps, WeatherState> {
                             'Stored temperature:', this.state.temperature,
                             'Stored feelsLike:', this.state.feelsLike,
                             'Stored humidity:', this.state.humidity,
-                            'Stored pressure:', this.state.pressure
+                            'Stored pressure:', this.state.pressure,
+                            'Stored windDeg:', this.state.windDeg,
+                            'Stored windSpeed:', this.state.windSpeed,
+                            'Stored timezone:', this.state.timezone
                         )
                     }
                         // console.log('This button will call the geolocation.')
@@ -217,7 +231,15 @@ class Weather extends React.Component<AcceptedProps, WeatherState> {
                 <br />
                 <br />
                 <div>
-                    <WeatherDisplay temperature={this.state.temperature} feelsLike={this.state.feelsLike} humidity={this.state.humidity} pressure={this.state.pressure}/>
+                    <WeatherDisplay
+                        temperature={this.state.temperature}
+                        feelsLike={this.state.feelsLike}
+                        humidity={this.state.humidity}
+                        pressure={this.state.pressure}
+                        windDeg={this.state.windDeg}
+                        windSpeed={this.state.windSpeed}
+                        timezone={this.state.timezone}
+                    />
                     {/* <WeatherDisplay latitude={this.state.latitude}/> */}
                 </div>
                 {/* <WeatherDisplay latitude={this.state.latitude} longitude={this.state.longitude} time={this.state.time} /> */}

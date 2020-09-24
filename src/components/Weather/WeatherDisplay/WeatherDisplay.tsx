@@ -11,6 +11,9 @@ type AcceptedProps = {
     feelsLike: number;
     humidity: number;
     pressure: number;
+    windDeg: number;
+    windSpeed: number;
+    timezone: string;
 }
 
 const WeatherDisplay: React.FunctionComponent<AcceptedProps> = (props) => {
@@ -18,14 +21,21 @@ const WeatherDisplay: React.FunctionComponent<AcceptedProps> = (props) => {
         <div className="mainDivWeatherDisplay">
             <h2>Hello from WeatherDisplay</h2>
             {
-                props.temperature === 0 && props.feelsLike === 0 && props.humidity === 0 && props.pressure === 0 ? (
-                    <div>Fetch Current Weather in your location!</div>
+                props.temperature === 0 && props.feelsLike === 0 && props.humidity === 0 && props.pressure === 0 && props.windDeg === 0 && props.windSpeed === 0 ? (
+                    <div>
+                        <p>
+                            Click the 'Fetch Open Weather Api' Button to find out the current weather conditions in your location!
+                        </p>
+                    </div>
                 ) : (
                         <div>
-                            <h6>Temperature: {props.temperature}</h6>
-                            <h6>Feels Like: {props.feelsLike}</h6>
-                            <h6>Humidity {props.humidity}</h6>
-                            <h6>Pressure: {props.pressure}</h6>
+                            <h5>Timezone: {props.timezone}</h5>
+                            <h5>Temperature: {props.temperature}</h5>
+                            <h5>Feels Like: {props.feelsLike}</h5>
+                            <h5>Humidity {props.humidity}</h5>
+                            <h5>Pressure: {props.pressure}</h5>
+                            <h5>Wind Degree: {props.windDeg}</h5>
+                            <h5>Wind Speed: {props.windSpeed}</h5>
                         </div>
                     )
             }
